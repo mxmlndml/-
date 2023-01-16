@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#2978d7" />
+  <title>:( Burgerbar hat geschlossen</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap');
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        color: #fff;
+      }
+    }
+
+    body {
+      height: 100vh;
+      height: 100dvh;
+      margin: 0;
+      padding: 5vh 4vw 0 4vw;
+      background-color: #2978d7;
+      font-family: 'Segoe UI', 'Noto Sans', sans-serif;
+      font-weight: 300;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+    span.smiley {
+      font-size: 25vh;
+    }
+
+    p.duration {
+      margin: 2vw 0 0 0;
+      font-size: 5vh;
+      line-height: 1.2;
+    }
+
+    div.qr {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3vw;
+      margin-top: 10vw;
+    }
+
+    a {
+      display: inline-grid;
+      width: 30vw;
+      max-width: 200px;
+      padding: min(3vw, 20px);
+      background-color: #fff;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    div.qr p {
+      align-self: end;
+      max-width: 400px;
+      margin: 0;
+      font-size: 2vh;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="smiley">:(</span>
+  <p class="duration">Die Burgerbar hat seit <span id="date"></span> geschlossen.</p>
+
+  <div class="qr">
+    <a href="https://hatdieburgerbargeoeff.net"><img src="./qr.png" alt="QR Code" /></a>
+    <p>Teile diese Seite mit deinen Kommilitonen, um auf dem neuesten Stand zu bleiben</p>
+  </div>
+</body>
+
+
+<script defer>
+  const span = document.querySelector("span#date");
+
+  const openAt = new Date("2022-07-25T16:00:00Z");
+  const now = new Date();
+  const delta = now - openAt;
+  const days = Math.round(delta / (24 * 60 * 60 * 1000));
+
+  span.innerText = days + (days === 1 ? " Tag" : " Tagen")
+</script>
+
+</html>
